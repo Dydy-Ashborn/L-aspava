@@ -6,111 +6,114 @@
 <title>L'Aspava Tacos — Sallanches</title>
 <link rel="icon" type="image/png" href="logo.png">
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --neon: #32CD32;
-    --neon-glow: rgba(50,205,50,0.5);
-    --neon-dim: rgba(50,205,50,0.15);
     --gold: #F5B800;
     --bg: #0a0a0a;
     --card: #111111;
-    --card2: #141414;
     --border: #1e1e1e;
     --text: #f0f0f0;
     --muted: #777;
   }
-
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
   .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
   .font-condensed { font-family: 'Barlow Condensed', sans-serif; }
-
   .neon-text { color: var(--neon); text-shadow: 0 0 6px rgba(50,205,50,0.8), 0 0 15px rgba(50,205,50,0.4); }
   .neon-price { color: var(--neon); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-shadow: 0 0 8px rgba(50,205,50,0.6); }
 
-  .menu-card {
-    background: var(--card);
-    border: 1px solid #1a1a1a;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    position: relative;
-  }
-  .menu-card:hover {
-    border-color: rgba(50,205,50,0.35);
-    box-shadow: 0 0 15px rgba(50,205,50,0.12), 0 4px 20px rgba(0,0,0,0.5);
-    transform: translateY(-2px);
-  }
+  .menu-card { background: var(--card); border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden; transition: all 0.3s ease; position: relative; }
+  .menu-card:hover { border-color: rgba(50,205,50,0.35); box-shadow: 0 0 15px rgba(50,205,50,0.12), 0 4px 20px rgba(0,0,0,0.5); transform: translateY(-2px); }
 
-  .hero-bg {
-    background: radial-gradient(ellipse at 60% 40%, rgba(0,60,0,0.35) 0%, transparent 65%),
-                radial-gradient(ellipse at 20% 80%, rgba(50,205,50,0.08) 0%, transparent 50%), var(--bg);
-  }
+  .hero-bg { background: radial-gradient(ellipse at 60% 40%, rgba(0,60,0,0.35) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(50,205,50,0.08) 0%, transparent 50%), var(--bg); }
 
-  .tab-btn {
-    background: transparent;
-    border: 1px solid #222;
-    color: var(--muted);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
+  .tab-btn { background: transparent; border: 1px solid #222; color: var(--muted); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
   .tab-btn:hover { border-color: rgba(50,205,50,0.3); color: #ccc; }
-  .tab-btn.active {
-    background: rgba(50,205,50,0.12);
-    border-color: var(--neon);
-    color: var(--neon);
-    box-shadow: 0 0 10px rgba(50,205,50,0.2);
-  }
-
-
+  .tab-btn.active { background: rgba(50,205,50,0.12); border-color: var(--neon); color: var(--neon); box-shadow: 0 0 10px rgba(50,205,50,0.2); }
 
   nav { background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #141414; }
-
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
-
+  ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
   .section-line { width: 40px; height: 2px; background: linear-gradient(90deg, var(--neon), transparent); box-shadow: 0 0 6px rgba(50,205,50,0.5); }
-
-
-  .badge-formule {
-    background: linear-gradient(135deg, rgba(50,205,50,0.15), rgba(50,205,50,0.05));
-    border: 1px solid rgba(50,205,50,0.3);
-    border-radius: 8px;
-  }
-
+  .badge-formule { background: linear-gradient(135deg, rgba(50,205,50,0.15), rgba(50,205,50,0.05)); border: 1px solid rgba(50,205,50,0.3); border-radius: 8px; }
   .supp-row { border-bottom: 1px solid #161616; padding: 0.5rem 0; display: flex; justify-content: space-between; align-items: center; }
   .horaire-item { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid #161616; }
-
   @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-  .shimmer-text {
-    background: linear-gradient(90deg, var(--neon) 0%, #7fff7f 40%, var(--neon) 60%, #00aa00 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    animation: shimmer 4s linear infinite;
-  }
-
+  .shimmer-text { background: linear-gradient(90deg, var(--neon) 0%, #7fff7f 40%, var(--neon) 60%, #00aa00 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; animation: fadeIn 0.25s ease; }
-
   .logo-glow { filter: drop-shadow(0 0 12px rgba(50,205,50,0.5)) drop-shadow(0 0 25px rgba(50,205,50,0.25)); }
-
-  .category-img { width: 100%; height: 180px; object-fit: cover; transition: transform 0.4s ease; }
-  .menu-card:hover .category-img { transform: scale(1.04); }
-
   .viande-chip { background: rgba(255,255,255,0.04); border: 1px solid #222; border-radius: 8px; padding: 0.75rem 1rem; transition: all 0.2s; }
   .viande-chip:hover { border-color: rgba(50,205,50,0.3); background: rgba(50,205,50,0.06); }
+
+  /* ═══ CART SYSTEM ═══ */
+  /* Bouton + sur les items */
+  .btn-add-cart {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1.5px solid var(--neon); color: var(--neon);
+    font-size: 1.1rem; line-height: 1; cursor: pointer;
+    transition: all 0.2s; background: transparent; flex-shrink: 0;
+  }
+  .btn-add-cart:hover { background: rgba(50,205,50,0.15); box-shadow: 0 0 10px rgba(50,205,50,0.3); }
+
+  /* FAB panier flottant */
+  #cart-fab {
+    position: fixed; bottom: 24px; right: 24px; z-index: 90;
+    background: var(--neon); color: #000;
+    width: 60px; height: 60px; border-radius: 50%;
+    display: none; align-items: center; justify-content: center;
+    cursor: pointer; box-shadow: 0 0 25px rgba(50,205,50,0.5);
+    transition: all 0.25s; border: none; flex-direction: column; gap: 1px;
+  }
+  #cart-fab:hover { transform: scale(1.08); box-shadow: 0 0 35px rgba(50,205,50,0.7); }
+  #cart-fab.visible { display: flex; }
+  #cart-count {
+    position: absolute; top: -4px; right: -4px;
+    background: #fff; color: #000; font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 0.7rem; width: 20px; height: 20px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Drawer panier */
+  #cart-drawer {
+    position: fixed; top: 0; right: -420px; width: 100%; max-width: 420px; height: 100vh;
+    background: #0e0e0e; border-left: 1px solid #1e1e1e;
+    z-index: 200; transition: right 0.3s ease; display: flex; flex-direction: column;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.6);
+  }
+  #cart-drawer.open { right: 0; }
+  #cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 199; display: none; backdrop-filter: blur(2px); }
+  #cart-overlay.open { display: block; }
+
+  .cart-item { border-bottom: 1px solid #1a1a1a; padding: 1rem 0; }
+  .qty-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid #333; background: transparent; color: #fff; cursor: pointer; font-size: 1rem; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
+  .qty-btn:hover { border-color: var(--neon); color: var(--neon); }
+
+  /* Checkbox "sans ingrédient" */
+  .ingr-tag { display: inline-flex; align-items: center; gap: 5px; font-size: 0.7rem; padding: 3px 8px; border-radius: 20px; border: 1px solid #2a2a2a; color: #888; cursor: pointer; transition: all 0.15s; background: transparent; user-select: none; }
+  .ingr-tag input { display: none; }
+  .ingr-tag.removed { border-color: rgba(255,80,80,0.5); color: rgba(255,80,80,0.8); text-decoration: line-through; background: rgba(255,80,80,0.05); }
+
+  /* Modal récap */
+  #recap-modal {
+    position: fixed; inset: 0; z-index: 300;
+    background: #050505;
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  #recap-modal.open { display: flex; animation: fadeIn 0.2s ease; }
+  .recap-item { border-bottom: 1px solid #1a1a1a; padding: 0.75rem 0; }
+  .recap-removed { color: rgba(255,100,100,0.7); font-size: 0.75rem; margin-top: 0.25rem; }
+
+  @keyframes pulse-neon {
+    0%, 100% { box-shadow: 0 0 20px rgba(50,205,50,0.4); }
+    50% { box-shadow: 0 0 40px rgba(50,205,50,0.8); }
+  }
+  .btn-call-now { animation: pulse-neon 2s ease-in-out infinite; }
 </style>
 </head>
 <body>
@@ -136,25 +139,16 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-  <!-- Noise -->
   <div class="absolute inset-0 opacity-[0.02]" style="background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-size:200px;"></div>
-
   <div class="max-w-6xl mx-auto px-4 pt-0 pb-20 grid md:grid-cols-2 gap-8 items-center w-full">
     <div class="z-10">
       <div class="flex items-center gap-2 mb-5">
         <div class="w-2 h-2 rounded-full bg-green-400" style="box-shadow:0 0 6px rgba(50,205,50,0.8);"></div>
         <span class="font-condensed text-xs tracking-[0.2em] uppercase text-green-400">Sallanches · Route du Fayet</span>
       </div>
-
-      <h1 class="font-display text-7xl sm:text-8xl md:text-9xl leading-none mb-1">
-        <span class="shimmer-text">L'ASPAVA</span>
-      </h1>
+      <h1 class="font-display text-7xl sm:text-8xl md:text-9xl leading-none mb-1"><span class="shimmer-text">L'ASPAVA</span></h1>
       <h2 class="font-display text-4xl sm:text-5xl text-white/70 mb-6 tracking-widest">TACOS</h2>
-
-      <p class="text-white/50 text-base mb-6 max-w-md font-light leading-relaxed">
-        Le vrai goût de Sallanches. Tacos généreux, sauce fromagère maison, frites croustillantes — fait avec passion.
-      </p>
-
+      <p class="text-white/50 text-base mb-6 max-w-md font-light leading-relaxed">Le vrai goût de Sallanches. Tacos généreux, sauce fromagère maison, frites croustillantes — fait avec passion.</p>
       <div class="badge-formule inline-flex items-center gap-4 px-5 py-3 mb-8">
         <div>
           <div class="font-condensed font-700 text-sm uppercase tracking-widest text-green-400">Option Menu</div>
@@ -162,27 +156,15 @@
         </div>
         <div class="neon-price text-3xl">+2,50€</div>
       </div>
-
       <div class="flex flex-wrap gap-3">
-        <a href="#menu" class="font-condensed font-700 text-sm tracking-widest uppercase px-7 py-3 rounded-lg text-black transition-all" style="background:var(--neon); box-shadow:0 0 20px rgba(50,205,50,0.4);">
-          VOIR LA CARTE
-        </a>
-        <a href="tel:0450913364" class="font-condensed font-600 text-sm tracking-widest uppercase px-7 py-3 rounded-lg border border-white/20 text-white/60 hover:border-green-500/40 hover:text-white transition-all">
-          ☎️ COMMANDER
-        </a>
+        <a href="#menu" class="font-condensed font-700 text-sm tracking-widest uppercase px-7 py-3 rounded-lg text-black transition-all" style="background:var(--neon); box-shadow:0 0 20px rgba(50,205,50,0.4);">VOIR LA CARTE</a>
+        <a href="tel:0450913364" class="font-condensed font-600 text-sm tracking-widest uppercase px-7 py-3 rounded-lg border border-white/20 text-white/60 hover:border-green-500/40 hover:text-white transition-all">☎️ COMMANDER</a>
       </div>
     </div>
-
     <div class="flex items-center justify-center">
-      <img
-        src="logo.png"
-        alt="L'Aspava Tacos"
-        class="w-64 sm:w-80 md:w-[420px] rounded-full"
-        style="filter: drop-shadow(0 0 40px rgba(50,205,50,0.45)) drop-shadow(0 0 80px rgba(50,205,50,0.15));"
-      >
+      <img src="logo.png" alt="L'Aspava Tacos" class="w-64 sm:w-80 md:w-[420px] rounded-full" style="filter: drop-shadow(0 0 40px rgba(50,205,50,0.45)) drop-shadow(0 0 80px rgba(50,205,50,0.15));">
     </div>
   </div>
-
   <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-25">
     <span class="font-condensed text-xs tracking-widest uppercase text-white">Scroll</span>
     <svg class="w-4 h-4 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -193,7 +175,10 @@
 <section id="menu" class="py-16 px-4">
   <div class="max-w-6xl mx-auto">
     <div class="section-line mb-3"></div>
-    <h2 class="font-display text-4xl sm:text-5xl text-white mb-1">NOTRE CARTE</h2>
+    <div class="flex items-end justify-between mb-1">
+      <h2 class="font-display text-4xl sm:text-5xl text-white">NOTRE CARTE</h2>
+      <span class="font-condensed text-xs text-white/35 uppercase tracking-widest hidden sm:block">Appuyez sur + pour composer votre commande</span>
+    </div>
     <p class="text-white/40 font-light text-sm mb-10">Tout est préparé à la commande · Fraîcheur garantie</p>
 
     <!-- TABS -->
@@ -204,7 +189,7 @@
       <button class="tab-btn" data-tab="snacks">🍟 Snacks & Boissons</button>
     </div>
 
-    <!-- TACOS -->
+    <!-- ─ TACOS ─ -->
     <div class="tab-panel active" id="panel-tacos">
       <div class="menu-card mb-6 overflow-hidden" style="border-color:rgba(50,205,50,0.2);">
         <div class="relative" style="height:220px;">
@@ -213,130 +198,179 @@
           <div class="absolute inset-0 flex flex-col justify-center px-8">
             <div class="neon-price text-5xl mb-1">7,00€</div>
             <h3 class="font-display text-4xl text-white mb-2">LES TACOS</h3>
-            <p class="text-white/55 text-sm max-w-xs">Sauce Fromagère Maison + Frites à l'intérieur. Choisissez votre viande ci-dessous.</p>
+            <p class="text-white/55 text-sm max-w-xs">Sauce Fromagère Maison + Frites à l'intérieur. Choisissez votre viande.</p>
           </div>
         </div>
       </div>
 
-      <p class="font-condensed text-xs text-white/35 uppercase tracking-widest mb-4">10 choix de viandes disponibles</p>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🥙</div><div class="font-condensed font-600 text-sm text-white">Kebab</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🥩</div><div class="font-condensed font-600 text-sm text-white">Steak</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🍗</div><div class="font-condensed font-600 text-sm text-white">Cordon Bleu</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🍿</div><div class="font-condensed font-600 text-sm text-white">Nuggets</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🐔</div><div class="font-condensed font-600 text-sm text-white">Poulet</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🌶️</div><div class="font-condensed font-600 text-sm text-white">Merguez</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🫙</div><div class="font-condensed font-600 text-sm text-white">Suçuk</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🥟</div><div class="font-condensed font-600 text-sm text-white">Kefta</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🍗</div><div class="font-condensed font-600 text-sm text-white">Tenders</div></div>
-        <div class="viande-chip text-center"><div class="text-xl mb-1">🥓</div><div class="font-condensed font-600 text-sm text-white">Lardons</div></div>
+      <p class="font-condensed text-xs text-white/35 uppercase tracking-widest mb-4">Choisissez votre viande · ajoutez au panier</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Kebab" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Kebab">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🥙</span>
+            <div>
+              <div class="font-condensed font-600 text-white">Tacos Kebab</div>
+              <div class="text-white/35 text-xs">Sauce Fromagère · Frites · Kebab</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="neon-price">7€</span>
+            <button class="btn-add-cart" onclick="addToCart(this)">+</button>
+          </div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Steak" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Steak">
+          <div class="flex items-center gap-3"><span class="text-xl">🥩</span><div><div class="font-condensed font-600 text-white">Tacos Steak</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Steak</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Cordon Bleu" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Cordon Bleu">
+          <div class="flex items-center gap-3"><span class="text-xl">🍗</span><div><div class="font-condensed font-600 text-white">Tacos Cordon Bleu</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Cordon Bleu</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Nuggets" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Nuggets">
+          <div class="flex items-center gap-3"><span class="text-xl">🍿</span><div><div class="font-condensed font-600 text-white">Tacos Nuggets</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Nuggets</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Poulet" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Poulet">
+          <div class="flex items-center gap-3"><span class="text-xl">🐔</span><div><div class="font-condensed font-600 text-white">Tacos Poulet</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Poulet</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Merguez" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Merguez">
+          <div class="flex items-center gap-3"><span class="text-xl">🌶️</span><div><div class="font-condensed font-600 text-white">Tacos Merguez</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Merguez</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Suçuk" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Suçuk">
+          <div class="flex items-center gap-3"><span class="text-xl">🫙</span><div><div class="font-condensed font-600 text-white">Tacos Suçuk</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Suçuk</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Kefta" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Kefta">
+          <div class="flex items-center gap-3"><span class="text-xl">🥟</span><div><div class="font-condensed font-600 text-white">Tacos Kefta</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Kefta</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Tenders" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Tenders">
+          <div class="flex items-center gap-3"><span class="text-xl">🍗</span><div><div class="font-condensed font-600 text-white">Tacos Tenders</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Tenders</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
+        <div class="menu-card p-4 flex items-center justify-between" data-item="Tacos Lardons" data-price="7.00" data-ingredients="Sauce Fromagère,Frites,Lardons">
+          <div class="flex items-center gap-3"><span class="text-xl">🥓</span><div><div class="font-condensed font-600 text-white">Tacos Lardons</div><div class="text-white/35 text-xs">Sauce Fromagère · Frites · Lardons</div></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price">7€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
+        </div>
       </div>
     </div>
 
-    <!-- SANDWICHS & BURGERS -->
+    <!-- ─ SANDWICHS & BURGERS ─ -->
     <div class="tab-panel" id="panel-sandwichs">
       <div class="relative overflow-hidden rounded-xl mb-8" style="height:200px;">
         <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&auto=format&fit=crop&q=80" alt="Burgers" class="w-full h-full object-cover opacity-45">
         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent"></div>
         <div class="absolute bottom-5 left-6"><h3 class="font-display text-3xl text-white">SANDWICHS & BURGERS</h3></div>
       </div>
-
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="menu-card p-5 flex justify-between items-start">
-          <div><div class="font-condensed font-700 text-white text-lg">Sandwich Pain</div><div class="text-white/40 text-xs mt-1">Garnitures au choix</div></div>
-          <div class="neon-price text-xl ml-4">5,50€</div>
+        <div class="menu-card p-5 flex justify-between items-center" data-item="Sandwich Pain" data-price="5.50" data-ingredients="Pain,Garniture au choix">
+          <div><div class="font-condensed font-700 text-white text-lg">Sandwich Pain</div><div class="text-white/40 text-xs mt-1">Garniture au choix</div></div>
+          <div class="flex items-center gap-3"><span class="neon-price text-xl">5,50€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
         </div>
-        <div class="menu-card p-5 flex justify-between items-start">
+        <div class="menu-card p-5 flex justify-between items-center" data-item="Libanais" data-price="5.50" data-ingredients="Galette,Garniture au choix">
           <div><div class="font-condensed font-700 text-white text-lg">Libanais</div><div class="text-white/40 text-xs mt-1">Sur galette</div></div>
-          <div class="neon-price text-xl ml-4">5,50€</div>
+          <div class="flex items-center gap-3"><span class="neon-price text-xl">5,50€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
         </div>
-        <div class="menu-card p-5 flex justify-between items-start">
-          <div><div class="font-condensed font-700 text-white text-lg">Burger Classic</div><div class="text-white/40 text-xs mt-1">Garnitures au choix</div></div>
-          <div class="neon-price text-xl ml-4">5,50€</div>
+        <div class="menu-card p-5 flex justify-between items-center" data-item="Burger Classic" data-price="5.50" data-ingredients="Pain burger,Steak,Salade,Tomate,Sauce">
+          <div><div class="font-condensed font-700 text-white text-lg">Burger Classic</div><div class="text-white/40 text-xs mt-1">Garniture au choix</div></div>
+          <div class="flex items-center gap-3"><span class="neon-price text-xl">5,50€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
         </div>
-        <div class="menu-card p-5 flex justify-between items-start">
+        <div class="menu-card p-5 flex justify-between items-center" data-item="Rösti Burger" data-price="6.00" data-ingredients="Pain burger,Galette de PDT,Steak,Salade,Sauce">
           <div><div class="font-condensed font-700 text-white text-lg">Rösti Burger</div><div class="text-white/40 text-xs mt-1">Galette de PDT croustillante</div></div>
-          <div class="neon-price text-xl ml-4">6,00€</div>
+          <div class="flex items-center gap-3"><span class="neon-price text-xl">6,00€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
         </div>
-        <div class="menu-card p-5 flex justify-between items-start" style="border-color:rgba(50,205,50,0.3); box-shadow:0 0 12px rgba(50,205,50,0.08);">
+        <div class="menu-card p-5 flex justify-between items-center" data-item="Double Cheeseburger" data-price="7.50" data-ingredients="Pain burger,Double steak,Double cheddar,Salade,Sauce" style="border-color:rgba(50,205,50,0.3); box-shadow:0 0 12px rgba(50,205,50,0.08);">
           <div><div class="font-condensed font-700 text-white text-lg">Double Cheeseburger</div><div class="text-white/40 text-xs mt-1">Double steak · Double cheddar</div></div>
-          <div class="neon-price text-xl ml-4">7,50€</div>
+          <div class="flex items-center gap-3"><span class="neon-price text-xl">7,50€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
         </div>
-        <div class="menu-card p-5">
-          <div class="font-condensed font-700 text-white text-lg mb-3">Panini <span class="neon-price text-base ml-2">5,50€</span></div>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-2 py-1 rounded bg-white/5 border border-white/10 text-white/55">Suçuk</span>
-            <span class="text-xs px-2 py-1 rounded bg-white/5 border border-white/10 text-white/55">Fromage</span>
-            <span class="text-xs px-2 py-1 rounded bg-white/5 border border-white/10 text-white/55">Poulet</span>
-            <span class="text-xs px-2 py-1 rounded bg-white/5 border border-white/10 text-white/55">Steak</span>
-          </div>
+        <div class="menu-card p-5 flex justify-between items-center" data-item="Panini" data-price="5.50" data-ingredients="Pain panini,Garniture au choix">
+          <div><div class="font-condensed font-700 text-white text-lg">Panini</div><div class="flex flex-wrap gap-1 mt-1"><span class="text-xs px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/50">Suçuk</span><span class="text-xs px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/50">Fromage</span><span class="text-xs px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/50">Poulet</span><span class="text-xs px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/50">Steak</span></div></div>
+          <div class="flex items-center gap-3"><span class="neon-price text-xl">5,50€</span><button class="btn-add-cart" onclick="addToCart(this)">+</button></div>
         </div>
       </div>
     </div>
 
-    <!-- ASSIETTES -->
+    <!-- ─ ASSIETTES ─ -->
     <div class="tab-panel" id="panel-assiettes">
       <div class="relative overflow-hidden rounded-xl mb-8" style="height:200px;">
         <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&auto=format&fit=crop&q=80" alt="Assiettes" class="w-full h-full object-cover opacity-45">
         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent"></div>
-        <div class="absolute bottom-5 left-6">
-          <h3 class="font-display text-3xl text-white">ASSIETTES</h3>
-          <p class="text-white/45 text-xs mt-1">Servies avec frites et salade</p>
-        </div>
+        <div class="absolute bottom-5 left-6"><h3 class="font-display text-3xl text-white">ASSIETTES</h3><p class="text-white/45 text-xs mt-1">Servies avec frites et salade</p></div>
       </div>
-
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="menu-card p-6 text-center">
+        <div class="menu-card p-6 text-center" data-item="Assiette 1 Viande" data-price="11.00" data-ingredients="Viande au choix,Frites,Salade">
           <div class="text-3xl mb-3">🍽️</div>
           <div class="font-condensed font-700 text-white text-base mb-1">1 Viande</div>
           <div class="text-white/40 text-xs mb-4">Frites + Salade</div>
-          <div class="neon-price text-3xl">11,00€</div>
+          <div class="neon-price text-3xl mb-3">11,00€</div>
+          <button class="btn-add-cart mx-auto" onclick="addToCart(this)">+</button>
         </div>
-        <div class="menu-card p-6 text-center" style="border-color:rgba(50,205,50,0.18);">
+        <div class="menu-card p-6 text-center" data-item="Assiette 2 Viandes" data-price="13.50" data-ingredients="2 viandes au choix,Frites,Salade" style="border-color:rgba(50,205,50,0.18);">
           <div class="text-3xl mb-3">🥘</div>
           <div class="font-condensed font-700 text-white text-base mb-1">2 Viandes</div>
           <div class="text-white/40 text-xs mb-4">Frites + Salade</div>
-          <div class="neon-price text-3xl">13,50€</div>
+          <div class="neon-price text-3xl mb-3">13,50€</div>
+          <button class="btn-add-cart mx-auto" onclick="addToCart(this)">+</button>
         </div>
-        <div class="menu-card p-6 text-center" style="border-color:rgba(50,205,50,0.35); box-shadow:0 0 15px rgba(50,205,50,0.1);">
+        <div class="menu-card p-6 text-center" data-item="Assiette Mixte (3 Viandes)" data-price="15.00" data-ingredients="3 viandes au choix,Frites,Salade" style="border-color:rgba(50,205,50,0.35); box-shadow:0 0 15px rgba(50,205,50,0.1);">
           <div class="text-3xl mb-3">👑</div>
           <div class="font-condensed font-700 text-white text-base mb-1">Mixte (3 Viandes)</div>
           <div class="text-white/40 text-xs mb-4">Frites + Salade</div>
-          <div class="neon-price text-3xl">15,00€</div>
+          <div class="neon-price text-3xl mb-3">15,00€</div>
+          <button class="btn-add-cart mx-auto" onclick="addToCart(this)">+</button>
         </div>
-        <div class="menu-card p-6 text-center" style="border-color:rgba(245,184,0,0.25);">
+        <div class="menu-card p-6 text-center" data-item="Assiette Enfant" data-price="5.00" data-ingredients="Steak ou Nuggets,Frites,CapriSun" style="border-color:rgba(245,184,0,0.25);">
           <div class="text-3xl mb-3">👶</div>
           <div class="font-condensed font-700 text-white text-base mb-1">Assiette Enfant</div>
           <div class="text-white/40 text-xs mb-4">Steak/Nuggets + Frites + CapriSun</div>
-          <div class="text-3xl font-condensed font-700" style="color:#F5B800; text-shadow:0 0 8px rgba(245,184,0,0.5);">5,00€</div>
+          <div class="text-3xl font-condensed font-700 mb-3" style="color:#F5B800; text-shadow:0 0 8px rgba(245,184,0,0.5);">5,00€</div>
+          <button class="btn-add-cart mx-auto" onclick="addToCart(this)">+</button>
         </div>
       </div>
     </div>
 
-    <!-- SNACKS & BOISSONS -->
+    <!-- ─ SNACKS & BOISSONS ─ -->
     <div class="tab-panel" id="panel-snacks">
       <div class="relative overflow-hidden rounded-xl mb-8" style="height:200px;">
         <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=1200&auto=format&fit=crop&q=80" alt="Snacks" class="w-full h-full object-cover opacity-45">
         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent"></div>
         <div class="absolute bottom-5 left-6"><h3 class="font-display text-3xl text-white">SNACKS & BOISSONS</h3></div>
       </div>
-
       <div class="grid sm:grid-cols-2 gap-4">
         <div class="menu-card p-6">
           <div class="font-condensed font-700 text-white text-lg mb-4">🍟 Snacks</div>
-          <div class="supp-row"><span class="text-white/65 text-sm">Wings ou Nuggets <span class="text-white/35 text-xs">(5 pcs)</span></span><span class="neon-price">5,00€</span></div>
-          <div class="supp-row"><span class="text-white/65 text-sm">Frites Petite</span><span class="neon-price">3,00€</span></div>
-          <div class="supp-row" style="border:none;"><span class="text-white/65 text-sm">Frites Grande</span><span class="neon-price">4,50€</span></div>
+          <div class="supp-row">
+            <span class="text-white/65 text-sm">Wings ou Nuggets <span class="text-white/35 text-xs">(5 pcs)</span></span>
+            <div class="flex items-center gap-3"><span class="neon-price">5,00€</span><button class="btn-add-cart" onclick="addToCart(this)" data-item="Wings / Nuggets (5 pcs)" data-price="5.00" data-ingredients="Wings ou Nuggets">+</button></div>
+          </div>
+          <div class="supp-row">
+            <span class="text-white/65 text-sm">Frites Petite</span>
+            <div class="flex items-center gap-3"><span class="neon-price">3,00€</span><button class="btn-add-cart" onclick="addToCart(this)" data-item="Frites Petite" data-price="3.00" data-ingredients="Frites">+</button></div>
+          </div>
+          <div class="supp-row" style="border:none;">
+            <span class="text-white/65 text-sm">Frites Grande</span>
+            <div class="flex items-center gap-3"><span class="neon-price">4,50€</span><button class="btn-add-cart" onclick="addToCart(this)" data-item="Frites Grande" data-price="4.50" data-ingredients="Frites">+</button></div>
+          </div>
         </div>
         <div class="menu-card p-6">
           <div class="font-condensed font-700 text-white text-lg mb-4">🥤 Boissons</div>
-          <div class="supp-row"><span class="text-white/65 text-sm">Canette 33cl</span><span class="neon-price">2,00€</span></div>
-          <div class="supp-row"><span class="text-white/65 text-sm">Bouteille 50cl</span><span class="neon-price">2,50€</span></div>
-          <div class="supp-row" style="border:none;"><span class="text-white/65 text-sm">Bouteille 1,5L</span><span class="neon-price">3,50€</span></div>
+          <div class="supp-row">
+            <span class="text-white/65 text-sm">Canette 33cl</span>
+            <div class="flex items-center gap-3"><span class="neon-price">2,00€</span><button class="btn-add-cart" onclick="addToCart(this)" data-item="Boisson 33cl" data-price="2.00" data-ingredients="Boisson au choix">+</button></div>
+          </div>
+          <div class="supp-row">
+            <span class="text-white/65 text-sm">Bouteille 50cl</span>
+            <div class="flex items-center gap-3"><span class="neon-price">2,50€</span><button class="btn-add-cart" onclick="addToCart(this)" data-item="Boisson 50cl" data-price="2.50" data-ingredients="Boisson au choix">+</button></div>
+          </div>
+          <div class="supp-row" style="border:none;">
+            <span class="text-white/65 text-sm">Bouteille 1,5L</span>
+            <div class="flex items-center gap-3"><span class="neon-price">3,50€</span><button class="btn-add-cart" onclick="addToCart(this)" data-item="Boisson 1.5L" data-price="3.50" data-ingredients="Boisson au choix">+</button></div>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -345,7 +379,6 @@
   <div class="max-w-6xl mx-auto">
     <div class="section-line mb-3"></div>
     <h2 class="font-display text-3xl sm:text-4xl text-white mb-8">SUPPLÉMENTS</h2>
-
     <div class="grid sm:grid-cols-3 gap-4">
       <div class="menu-card p-5">
         <div class="font-condensed font-600 text-white/45 text-xs uppercase tracking-widest mb-4">Viandes & Crudités</div>
@@ -353,10 +386,7 @@
         <div class="supp-row" style="border:none;"><span class="text-white/65 text-sm">Crudités</span><span class="neon-price">0,50€</span></div>
       </div>
       <div class="menu-card p-5">
-        <div class="flex items-center justify-between mb-4">
-          <div class="font-condensed font-600 text-white/45 text-xs uppercase tracking-widest">Fromages</div>
-          <span class="neon-price text-sm">1,00€ / choix</span>
-        </div>
+        <div class="flex items-center justify-between mb-4"><div class="font-condensed font-600 text-white/45 text-xs uppercase tracking-widest">Fromages</div><span class="neon-price text-sm">1,00€ / choix</span></div>
         <div class="flex flex-wrap gap-2">
           <span class="text-xs px-2 py-1 rounded bg-white/5 border border-white/10 text-white/55">Cheddar</span>
           <span class="text-xs px-2 py-1 rounded bg-white/5 border border-white/10 text-white/55">Boursin</span>
@@ -380,36 +410,26 @@
   <div class="max-w-6xl mx-auto">
     <div class="section-line mb-3"></div>
     <h2 class="font-display text-3xl sm:text-4xl text-white mb-10">CONTACT & COMMANDE</h2>
-
     <div class="flex flex-col md:flex-row gap-6 justify-center">
-
       <div class="menu-card p-6 flex-1">
         <div class="font-condensed font-700 text-white text-lg mb-5 flex items-center gap-2">
           <svg class="w-5 h-5 neon-text" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-.83 0-1.5-.67-1.5-1.5S11.17 13.5 12 13.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1-4.5h-2V7h2v5z"/></svg>
           Horaires d'Ouverture
         </div>
-        <div class="horaire-item"><span class="text-white/55 text-sm">Lun &ndash; Sam Midi</span><span class="font-condensed font-600 text-white text-sm">11h30 &ndash; 14h30</span></div>
-        <div class="horaire-item"><span class="text-white/55 text-sm">Lun &ndash; Dim Soir</span><span class="font-condensed font-600 text-white text-sm">18h00 &ndash; 23h00</span></div>
-        <div class="horaire-item" style="border:none;"><span class="text-sm" style="color:#F5B800;">Dimanche Midi</span><span class="font-condensed font-600 text-sm" style="color:#F5B800;">Ferm&eacute;</span></div>
+        <div class="horaire-item"><span class="text-white/55 text-sm">Lun – Sam Midi</span><span class="font-condensed font-600 text-white text-sm">11h30 – 14h30</span></div>
+        <div class="horaire-item"><span class="text-white/55 text-sm">Lun – Dim Soir</span><span class="font-condensed font-600 text-white text-sm">18h00 – 23h00</span></div>
+        <div class="horaire-item" style="border:none;"><span class="text-sm" style="color:#F5B800;">Dimanche Midi</span><span class="font-condensed font-600 text-sm" style="color:#F5B800;">Fermé</span></div>
       </div>
-
       <div class="menu-card p-6 space-y-5 flex-1">
         <div class="flex items-start gap-3">
           <svg class="w-5 h-5 neon-text mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <div>
-            <div class="text-white/35 text-xs font-condensed uppercase tracking-wider mb-1">Adresse</div>
-            <div class="text-white text-sm leading-relaxed">857, Route du Fayet<br>74700 SALLANCHES</div>
-          </div>
+          <div><div class="text-white/35 text-xs font-condensed uppercase tracking-wider mb-1">Adresse</div><div class="text-white text-sm leading-relaxed">857, Route du Fayet<br>74700 SALLANCHES</div></div>
         </div>
         <div class="flex items-start gap-3">
           <svg class="w-5 h-5 neon-text mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <div>
-            <div class="text-white/35 text-xs font-condensed uppercase tracking-wider mb-1">Commander par t&eacute;l&eacute;phone</div>
-            <a href="tel:0450913364" class="neon-text font-condensed font-700 text-2xl hover:underline">04 50 91 33 64</a>
-          </div>
+          <div><div class="text-white/35 text-xs font-condensed uppercase tracking-wider mb-1">Commander par téléphone</div><a href="tel:0450913364" class="neon-text font-condensed font-700 text-2xl hover:underline">04 50 91 33 64</a></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -426,9 +446,83 @@
   </div>
 </footer>
 
+<!-- ═══ CART FAB ═══ -->
+<button id="cart-fab" onclick="openCart()" aria-label="Voir le panier">
+  <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zm0 0M3 6h18M16 10a4 4 0 01-8 0"/><path stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" d="M3 6h18M16 10a4 4 0 01-8 0"/><path d="M3 6h18"/></svg>
+  <span id="cart-count" style="display:none;">0</span>
+</button>
+
+<!-- ═══ CART OVERLAY ═══ -->
+<div id="cart-overlay" onclick="closeCart()"></div>
+
+<!-- ═══ CART DRAWER ═══ -->
+<div id="cart-drawer">
+  <!-- Header -->
+  <div class="flex items-center justify-between px-5 py-4 border-b border-[#1e1e1e]">
+    <div>
+      <h3 class="font-display text-2xl text-white tracking-wide">MON PANIER</h3>
+      <p class="text-white/35 text-xs font-condensed mt-0.5">Composez votre commande · Retirez ce que vous voulez</p>
+    </div>
+    <button onclick="closeCart()" class="text-white/40 hover:text-white transition-colors p-1">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Items -->
+  <div id="cart-items" class="flex-1 overflow-y-auto px-5 py-4">
+    <div id="cart-empty" class="flex flex-col items-center justify-center h-48 text-white/30">
+      <svg class="w-12 h-12 mb-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m5-9v9m4-9v9m4-9l2 9"/></svg>
+      <p class="font-condensed text-sm">Votre panier est vide</p>
+      <p class="text-xs mt-1">Appuyez sur + pour ajouter des articles</p>
+    </div>
+    <div id="cart-list"></div>
+  </div>
+
+  <!-- Footer panier -->
+  <div id="cart-footer" class="hidden px-5 py-4 border-t border-[#1e1e1e]">
+    <div class="flex justify-between items-center mb-4">
+      <span class="font-condensed text-white/60 uppercase tracking-widest text-sm">Total estimé</span>
+      <span id="cart-total" class="neon-price text-2xl">0,00€</span>
+    </div>
+    <button onclick="commander()" class="w-full font-condensed font-800 text-base tracking-widest uppercase py-4 rounded-xl text-black btn-call-now transition-all" style="background:var(--neon);">
+      📞 APPELER & COMMANDER
+    </button>
+    <button onclick="clearCart()" class="w-full mt-2 font-condensed text-xs text-white/25 hover:text-white/50 py-2 transition-colors">Vider le panier</button>
+  </div>
+</div>
+
+<!-- ═══ RECAP MODAL ═══ -->
+<div id="recap-modal">
+  <div class="w-full max-w-lg">
+    <!-- Top -->
+    <div class="text-center mb-8">
+      <div class="font-display text-5xl neon-text mb-1">VOTRE COMMANDE</div>
+      <p class="text-white/40 text-sm font-condensed">Lisez ce récap à voix haute lors de votre appel</p>
+    </div>
+
+    <!-- Liste récap -->
+    <div id="recap-list" class="w-full bg-[#111] rounded-2xl p-5 mb-6 max-h-[45vh] overflow-y-auto border border-[#1e1e1e]"></div>
+
+    <!-- Total -->
+    <div class="flex justify-between items-center px-1 mb-6">
+      <span class="font-condensed text-white/50 uppercase tracking-widest text-sm">Total estimé</span>
+      <span id="recap-total" class="neon-price text-3xl"></span>
+    </div>
+
+    <!-- Numéro en grand -->
+    <a id="recap-call-btn" href="tel:0450913364" class="block w-full text-center font-display text-4xl py-4 rounded-xl text-black mb-3 btn-call-now" style="background:var(--neon);">
+      📞 04 50 91 33 64
+    </a>
+
+    <button onclick="closeRecap()" class="w-full font-condensed text-sm text-white/30 hover:text-white/60 py-2 transition-colors">
+      ← Retour au panier
+    </button>
+  </div>
+</div>
 
 <!-- ═══ JS ═══ -->
 <script>
+  // ── Tabs
   const tabBtns = document.querySelectorAll('.tab-btn[data-tab]');
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -440,6 +534,179 @@
       if (panel) panel.classList.add('active');
     });
   });
+
+  // ── Cart State
+  let cart = []; // [{id, name, price, ingredients:[], removed:[], qty}]
+  let uidCounter = 0;
+
+  function addToCart(btn) {
+    // Cherche les data sur le parent card (.menu-card)
+    const card = btn.closest('[data-item]');
+    if (!card) return;
+
+    const name = card.dataset.item;
+    const price = parseFloat(card.dataset.price);
+    const ingredients = card.dataset.ingredients
+      ? card.dataset.ingredients.split(',').map(i => i.trim()).filter(Boolean)
+      : [];
+
+    cart.push({ id: ++uidCounter, name, price, ingredients, removed: [], qty: 1 });
+    updateCart();
+    openCart();
+
+    // Flash du bouton
+    btn.textContent = '✓';
+    btn.style.borderColor = 'var(--neon)';
+    btn.style.background = 'rgba(50,205,50,0.2)';
+    setTimeout(() => { btn.textContent = '+'; btn.style.background = ''; }, 800);
+  }
+
+  function updateCart() {
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const count = cart.reduce((s, i) => s + i.qty, 0);
+
+    // FAB
+    const fab = document.getElementById('cart-fab');
+    const countEl = document.getElementById('cart-count');
+    if (count > 0) {
+      fab.classList.add('visible');
+      countEl.style.display = 'flex';
+      countEl.textContent = count;
+    } else {
+      fab.classList.remove('visible');
+      countEl.style.display = 'none';
+    }
+
+    // Total
+    document.getElementById('cart-total').textContent = total.toFixed(2).replace('.', ',') + '€';
+
+    // Empty state
+    const empty = document.getElementById('cart-empty');
+    const list = document.getElementById('cart-list');
+    const footer = document.getElementById('cart-footer');
+    if (cart.length === 0) {
+      empty.style.display = 'flex';
+      list.innerHTML = '';
+      footer.classList.add('hidden');
+      return;
+    }
+    empty.style.display = 'none';
+    footer.classList.remove('hidden');
+
+    // Render items
+    list.innerHTML = cart.map(item => `
+      <div class="cart-item">
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <div class="flex-1">
+            <div class="font-condensed font-700 text-white text-base">${item.name}</div>
+            <div class="neon-price text-sm">${(item.price * item.qty).toFixed(2).replace('.', ',')}€
+              ${item.qty > 1 ? `<span class="text-white/30 text-xs ml-1">(${item.price.toFixed(2).replace('.', ',')}€ × ${item.qty})</span>` : ''}
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+            <span class="font-condensed font-700 text-white w-5 text-center">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id}, +1)">+</button>
+            <button class="qty-btn" onclick="removeItem(${item.id})" style="border-color:#333; color:#ff6060;">✕</button>
+          </div>
+        </div>
+        ${item.ingredients.length > 0 ? `
+        <div class="mt-2">
+          <div class="text-white/30 text-xs font-condensed uppercase tracking-wider mb-1.5">Retirer un ingrédient :</div>
+          <div class="flex flex-wrap gap-1.5">
+            ${item.ingredients.map(ing => `
+              <label class="ingr-tag ${item.removed.includes(ing) ? 'removed' : ''}" id="tag-${item.id}-${ing.replace(/\s/g,'_')}">
+                <input type="checkbox" ${item.removed.includes(ing) ? 'checked' : ''} onchange="toggleIngr(${item.id}, '${ing}', this.checked)">
+                ${item.removed.includes(ing) ? '✕ ' : ''}${ing}
+              </label>
+            `).join('')}
+          </div>
+        </div>` : ''}
+      </div>
+    `).join('');
+  }
+
+  function changeQty(id, delta) {
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    item.qty = Math.max(1, item.qty + delta);
+    updateCart();
+  }
+
+  function removeItem(id) {
+    cart = cart.filter(i => i.id !== id);
+    updateCart();
+  }
+
+  function toggleIngr(id, ing, checked) {
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    if (checked && !item.removed.includes(ing)) {
+      item.removed.push(ing);
+    } else {
+      item.removed = item.removed.filter(r => r !== ing);
+    }
+    updateCart();
+  }
+
+  function clearCart() {
+    cart = [];
+    updateCart();
+  }
+
+  // ── Drawer
+  function openCart() {
+    document.getElementById('cart-drawer').classList.add('open');
+    document.getElementById('cart-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCart() {
+    document.getElementById('cart-drawer').classList.remove('open');
+    document.getElementById('cart-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Commander → récap plein écran + appel
+  function commander() {
+    if (cart.length === 0) return;
+
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+    // Construire le récap
+    const recapList = document.getElementById('recap-list');
+    recapList.innerHTML = cart.map(item => `
+      <div class="recap-item">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="font-condensed font-700 text-white text-base">${item.qty > 1 ? item.qty + '× ' : ''}${item.name}</span>
+            ${item.removed.length > 0 ? `
+              <div class="recap-removed">⚠️ Sans : ${item.removed.join(', ')}</div>
+            ` : ''}
+          </div>
+          <span class="neon-price ml-4">${(item.price * item.qty).toFixed(2).replace('.', ',')}€</span>
+        </div>
+      </div>
+    `).join('');
+
+    document.getElementById('recap-total').textContent = total.toFixed(2).replace('.', ',') + '€';
+
+    closeCart();
+    const modal = document.getElementById('recap-modal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Déclencher l'appel
+    setTimeout(() => {
+      window.location.href = 'tel:0450913364';
+    }, 300);
+  }
+
+  function closeRecap() {
+    document.getElementById('recap-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    openCart();
+  }
 </script>
 </body>
 </html>
